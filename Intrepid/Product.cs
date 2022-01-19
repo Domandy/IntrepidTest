@@ -79,7 +79,7 @@ namespace Intrepid
                 .ToList()
                 .ForEach(p => p.Price = p.Price - (p.Price * 10 / 100));
 
-            //20% discount for clothing where discounted
+            //20% discount for clothing where discounted.
             products.Where(x => x.Category == "Clothing" && x.Status == "Discounted")
                     .ToList()
                     .ForEach(p => p.Price = p.Price - (p.Price * 20 / 100));
@@ -99,8 +99,6 @@ namespace Intrepid
         public static void ExportFile(List<Product> products)
         {
             var sb = new StringBuilder();
-            // var productString = products.ConvertAll(x => Convert.ToString(x));
-            // string file = string.Join(", ", productString);
             foreach (var p in products)
             {
                 sb.AppendLine(p.ID + "," + p.Description + "," + p.Price + ",");
